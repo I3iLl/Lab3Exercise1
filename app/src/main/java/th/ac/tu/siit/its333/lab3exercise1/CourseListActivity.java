@@ -1,19 +1,31 @@
 package th.ac.tu.siit.its333.lab3exercise1;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 
 
 public class CourseListActivity extends ActionBarActivity {
+
+    String input;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_list);
-    }
 
+        Intent j = this.getIntent();
+        input = j.getStringExtra("result");
+        TextView tvList = (TextView)findViewById(R.id.tvList);
+        tvList.setText(input);
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
